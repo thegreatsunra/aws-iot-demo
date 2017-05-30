@@ -27,6 +27,7 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "scripts": {
+    "aws": "node ./aws.js --ca-certificate=root-CA.crt",
     "lint": "eslint --ext .js ./",
     "start": "node ./index.js"
   },
