@@ -2,21 +2,21 @@
 
 > Lightweight demo of AWS IoT messaging
 
-## Prerequisites
+### Prerequisites
 
-1) install [node](https://nodejs.org/en/), [git](https://git-scm.com/downloads), and [yarn](https://yarnpkg.com/lang/en/docs/install/)
+1) Install [node](https://nodejs.org/en/)
+2) Install [git](https://git-scm.com/downloads)
+3) Install [yarn](https://yarnpkg.com/lang/en/docs/install/)
 
-## Getting started
+### Set up project
 
-1) clone this repo
-
+1) Clone this repo
 ```bash
 git clone https://github.com/thegreatsunra/aws-iot-demo.git
 cd aws-iot-demo
 ```
 
-2) install dependencies
-
+2) Install dependencies
 ```bash
 yarn
 ```
