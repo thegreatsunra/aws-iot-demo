@@ -17,9 +17,9 @@
 
 // npm deps
 
-const deviceModule = require('..').device;
-const cmdLineProcess = require('./lib/cmdline');
 // app deps
+const deviceModule = require('aws-iot-device-sdk').device
+const cmdLineProcess = require('aws-iot-device-sdk/examples/lib/cmdline')
 
 // begin module
 
