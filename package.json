@@ -27,6 +27,7 @@
     "eslint-plugin-standard": "^3.0.1"
   },
   "scripts": {
+    "lint": "eslint --ext .js ./",
     "start": "node ./index.js"
   },
   "main": "index.js"
