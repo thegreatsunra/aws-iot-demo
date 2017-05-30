@@ -1,11 +1,11 @@
 {
-  "name": "basic-now-static-server",
-  "description": "Serve a static site on Zeit's now using Express and basic-auth",
+  "name": "aws-iot-demo",
+  "description": "Lightweight demo of AWS IoT messaging",
   "version": "0.1.0",
-  "homepage": "https://github.com/thegreatsunra/basic-now-static-server",
+  "homepage": "https://github.com/thegreatsunra/aws-iot-demo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thegreatsunra/basic-now-static-server.git"
+    "url": "https://github.com/thegreatsunra/aws-iot-demo.git"
   },
   "author": "Dane Petersen <thegreatsunra@gmail.com>",
   "license": "MIT",
