@@ -27,7 +27,7 @@
   },
   "scripts": {
     "lint": "eslint --ext .js ./",
-    "start": "node ./index.js -d --host-name=a2rjbqa0o8u7wf.iot.us-east-2.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.crt"
+    "start": "node ./index.js -d --host-name=xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.crt"
   },
   "main": "index.js"
 }
