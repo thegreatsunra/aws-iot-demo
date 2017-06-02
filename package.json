@@ -1,7 +1,7 @@
 {
   "name": "aws-iot-demo",
   "description": "Lightweight demo of AWS IoT messaging",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/thegreatsunra/aws-iot-demo",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "lint": "eslint --ext .js ./",
-    "start": "node ./index.js -d --host-name=a2rjbqa0o8u7wf.iot.us-east-2.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.crt"
+    "start": "node ./index.js -d --host-name=xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.crt"
   },
   "main": "index.js"
 }
