@@ -48,26 +48,23 @@ function processTest (args) {
   let count = 0
   const minimumDelay = 250
 
-  if (args.testMode === 1) {
-    device.subscribe('topic_1')
-  } else {
-    device.subscribe('topic_2')
-  }
   if ((Math.max(args.delay, minimumDelay)) !== args.delay) {
     console.log('substituting ' + minimumDelay + 'ms delay for ' + args.delay + 'ms...')
   }
   timeout = setInterval(() => {
     count++
-
-    if (args.testMode === 1) {
-      device.publish('topic_2', JSON.stringify({
-        mode1Process: count
-      }))
-    } else {
-      device.publish('topic_1', JSON.stringify({
-        mode2Process: count
-      }))
+    let now = new Date()
+    let timestamp = now.toISOString()
+    let message = {
+      timestampUTC: timestamp,
+      messageCount: count,
+      payload: {
+        keyOne: true,
+        keyTwo: 'value'
+      }
     }
+    device.publish('topic_2', JSON.stringify(message))
+    console.log('AWS IoT - device published: \n', JSON.stringify(message), '\n')
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
   //
   // Do a simple publish/subscribe demo based on the test-mode passed
