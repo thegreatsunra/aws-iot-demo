@@ -2,6 +2,8 @@
 
 > Lightweight demo of AWS IoT messaging
 
+## Getting started
+
 ### Prerequisites
 
 1) Install [node](https://nodejs.org/en/)
@@ -21,7 +23,7 @@ cd aws-iot-demo
 yarn
 ```
 
-### Set up AWS IoT
+## Set up AWS IoT
 
 1) Sign up for AWS
 2) Go to the AWS IoT home screen
@@ -29,7 +31,7 @@ yarn
 4) Create a new Thing
 5) Name your Thing
 
-### Create AWD IoT "Thing" certificate
+### Create an AWD IoT "Thing" certificate
 
 1) Choose "Security" from the menu
 2) Click "Create Certificate"
@@ -44,7 +46,7 @@ yarn
 
 1) Move all the files you downloaded (the certificate, public key, private key, and root CA) from AWS IoT into the `certs/` folder of this project, and rename the files to `certificate.pem.crt`, `public.pem.key`, `private.pem.key`, and `root-CA.crt`
 
-2) Open `package.json` and find the `aws` script (should be around line 30)
+2) Open `package.json` and find the `start` script (should be around line 30)
 
 4) Update the value for `--host-name` to your "custom endpoint" on AWS IoT. You can find this value by clicking the "Settings" menu option on your AWS IoT home screen. It should look something like `xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com`
 
