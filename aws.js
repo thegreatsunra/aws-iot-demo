@@ -69,7 +69,6 @@ function processTest (args) {
       }))
     }
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
-
   //
   // Do a simple publish/subscribe demo based on the test-mode passed
   // in the command line arguments.  If test-mode is 1, subscribe to
@@ -78,27 +77,27 @@ function processTest (args) {
   //
   device
     .on('connect', () => {
-      console.log('connect')
+      console.log('AWS IoT - device connected')
     })
   device
     .on('close', () => {
-      console.log('close')
+      console.log('AWS IoT - connection closed')
     })
   device
     .on('reconnect', () => {
-      console.log('reconnect')
+      console.log('AWS IoT - device reconnected')
     })
   device
     .on('offline', () => {
-      console.log('offline')
+      console.log('AWS IoT - device offline')
     })
   device
     .on('error', (error) => {
-      console.log('error', error)
+      console.log('AWS IoT - error', error)
     })
   device
     .on('message', (topic, payload) => {
-      console.log('message', topic, payload.toString())
+      console.log('AWS IoT - device message', topic, payload.toString())
     })
 }
 
