@@ -64,31 +64,31 @@ function processTest (args) {
       }
     }
     device.publish('deviceMessages', JSON.stringify(message))
-    console.log('device.publish: \n', JSON.stringify(message), '\n')
+    console.log('AWS IoT - device.publish: \n', JSON.stringify(message), '\n')
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
   device
     .on('connect', () => {
-      console.log('device.connect')
+      console.log('AWS IoT - device.connect')
     })
   device
     .on('close', () => {
-      console.log('device.close')
+      console.log('AWS IoT - device.close')
     })
   device
     .on('reconnect', () => {
-      console.log('device.reconnect')
+      console.log('AWS IoT - device.reconnect')
     })
   device
     .on('offline', () => {
-      console.log('device.offline')
+      console.log('AWS IoT - device.offline')
     })
   device
     .on('error', (error) => {
-      console.log('device.error', error)
+      console.log('AWS IoT - device.error', error)
     })
   device
     .on('message', (topic, payload) => {
-      console.log('device.message', topic, payload.toString())
+      console.log('AWS IoT - device.message', topic, payload.toString())
     })
 }
 
