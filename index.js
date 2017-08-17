@@ -44,9 +44,10 @@ function processTest (args) {
     debug: args.Debug
   })
 
+  const minimumDelay = 3000
+  const topic = 'deviceMessages'
   let timeout // eslint-disable-line no-unused-vars
   let count = 0
-  const minimumDelay = 1000
 
   if ((Math.max(args.delay, minimumDelay)) !== args.delay) {
     console.log('substituting ' + minimumDelay + 'ms delay for ' + args.delay + 'ms...')
@@ -63,7 +64,7 @@ function processTest (args) {
         keyTwo: 'value'
       }
     }
-    device.publish('deviceMessages', JSON.stringify(message))
+    device.publish(topic, JSON.stringify(message))
     console.log('AWS IoT - device.publish: \n', JSON.stringify(message), '\n')
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
   device
