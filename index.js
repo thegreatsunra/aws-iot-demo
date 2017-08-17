@@ -64,37 +64,37 @@ function processTest (args) {
       }
     }
     device.publish('awsIotDemo', JSON.stringify(message))
-    console.log('AWS IoT - device published: \n', JSON.stringify(message), '\n')
+    console.log('device.publish: \n', JSON.stringify(message), '\n')
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
   device
     .on('connect', () => {
-      console.log('AWS IoT - device connected')
+      console.log('device.connect')
     })
   device
     .on('close', () => {
-      console.log('AWS IoT - connection closed')
+      console.log('device.close')
     })
   device
     .on('reconnect', () => {
-      console.log('AWS IoT - device reconnected')
+      console.log('device.reconnect')
     })
   device
     .on('offline', () => {
-      console.log('AWS IoT - device offline')
+      console.log('device.offline')
     })
   device
     .on('error', (error) => {
-      console.log('AWS IoT - error', error)
+      console.log('device.error', error)
     })
   device
     .on('message', (topic, payload) => {
-      console.log('AWS IoT - device message', topic, payload.toString())
+      console.log('device.message', topic, payload.toString())
     })
 }
 
 module.exports = cmdLineProcess
 
 if (require.main === module) {
-  cmdLineProcess('connect to the AWS IoT service and publish/subscribe to topics using MQTT, test modes 1-2',
-  process.argv.slice(2), processTest)
+  cmdLineProcess('connect to the AWS IoT service and publish/subscribe to topics using MQTT',
+    process.argv.slice(2), processTest)
 }
