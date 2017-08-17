@@ -54,6 +54,7 @@ function processTest (args) {
   }
   timeout = setInterval(() => {
     count++
+    let countIsPrime = isPrime(count)
     let now = new Date()
     let timestamp = now.toISOString()
     let message = {
@@ -61,6 +62,7 @@ function processTest (args) {
       count: count,
       topic: topic,
       payload: {
+        countIsPrime,
         keyOne: true,
         keyTwo: 'value'
       }
@@ -92,6 +94,11 @@ function processTest (args) {
     .on('message', (topic, payload) => {
       console.log('AWS IoT - device.message', topic, payload.toString())
     })
+}
+
+const isPrime = num => {
+  for (let i = 2; i < num; i++) if (num % i === 0) return false
+  return num !== 1
 }
 
 module.exports = cmdLineProcess
