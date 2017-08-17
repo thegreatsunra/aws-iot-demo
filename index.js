@@ -63,7 +63,7 @@ function processTest (args) {
         keyTwo: 'value'
       }
     }
-    device.publish('awsIotDemo', JSON.stringify(message))
+    device.publish('deviceMessages', JSON.stringify(message))
     console.log('device.publish: \n', JSON.stringify(message), '\n')
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
   device
