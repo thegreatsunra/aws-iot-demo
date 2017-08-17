@@ -57,8 +57,9 @@ function processTest (args) {
     let now = new Date()
     let timestamp = now.toISOString()
     let message = {
-      timestampUTC: timestamp,
-      messageCount: count,
+      at: timestamp,
+      count: count,
+      topic: topic,
       payload: {
         keyOne: true,
         keyTwo: 'value'
