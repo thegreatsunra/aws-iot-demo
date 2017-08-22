@@ -62,11 +62,9 @@ function processTest (args) {
       at: timestamp,
       count: count,
       topic: topic,
-      payload: {
-        countIsPrime,
-        keyOne: true,
-        keyTwo: 'value'
-      }
+      lat: 44.986656,
+      lng: -93.258133,
+      countIsPrime
     }
     device.publish(topic, JSON.stringify(message))
     console.log('AWS IoT - device.publish: \n', JSON.stringify(message), '\n')
