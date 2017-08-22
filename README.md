@@ -59,6 +59,10 @@ yarn
 5) Click the "deviceMessages_topic" menu item that appears beneath "Subscribe to a topic" in the left menu
 6) You should see messages streaming in!
 
+### TODO: Add instructions for adding DynamoDB rule, and creating DynamoDB database and indexes
+
+### TODO: Add instructions for creating AWS API Gateway resources, methods, child resources, body mapping templates, deployments, stages, etc.
+
 ## License
 
 The MIT License (MIT)
