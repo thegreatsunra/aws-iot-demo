@@ -54,9 +54,9 @@ yarn
 
 1) Run `npm start`
 2) Go to your AWS IoT home screen and click the "Test" menu option
-3) Under "Subscribe to a topic" enter `awsIotDemo` as your "Subscription topic"
+3) Under "Subscribe to a topic" enter `deviceMessages_topic` as your "Subscription topic"
 4) Click "Subscribe to topic"
-5) Click the "awsIotDemo" menu item that appears beneath "Subscribe to a topic" in the left menu
+5) Click the "deviceMessages_topic" menu item that appears beneath "Subscribe to a topic" in the left menu
 6) You should see messages streaming in!
 
 ## License
