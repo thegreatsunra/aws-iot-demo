@@ -66,6 +66,8 @@ function processTest (args) {
     let now = new Date()
     let timestamp = now.toISOString()
     let message = {
+      id: getRandomString(8),
+      deviceId: devices[getRandomNumber(0, 4)],
       at: timestamp,
       count: count,
       topic: topic,
