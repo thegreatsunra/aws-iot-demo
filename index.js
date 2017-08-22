@@ -100,6 +100,17 @@ function isPrime (num) {
   return num !== 1
 }
 
+function getRandomNumber (min, max) {
+  return Math.floor(Math.random() * (max - min +1)) + min
+}
+
+function getRandomString (length) {
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let text = ''
+  for (let i = 0; i < length; i++) { text += possible.charAt(Math.floor(Math.random() * possible.length)) }
+  return text
+}
+
 module.exports = cmdLineProcess
 
 if (require.main === module) {
