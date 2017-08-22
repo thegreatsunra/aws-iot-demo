@@ -52,6 +52,7 @@ function processTest (args) {
   if ((Math.max(args.delay, minimumDelay)) !== args.delay) {
     console.log('substituting ' + minimumDelay + 'ms delay for ' + args.delay + 'ms...')
   }
+
   timeout = setInterval(() => {
     count++
     let countIsPrime = isPrime(count)
@@ -96,7 +97,7 @@ function processTest (args) {
     })
 }
 
-const isPrime = num => {
+function isPrime (num) {
   for (let i = 2; i < num; i++) if (num % i === 0) return false
   return num !== 1
 }
