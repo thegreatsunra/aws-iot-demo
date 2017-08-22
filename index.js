@@ -45,7 +45,7 @@ function processTest (args) {
   })
 
   const minimumDelay = 3000
-  const topic = 'deviceMessages'
+  const topic = 'deviceMessages_topic'
   let timeout // eslint-disable-line no-unused-vars
   let count = 0
 
