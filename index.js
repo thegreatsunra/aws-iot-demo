@@ -21,6 +21,13 @@
 const deviceModule = require('aws-iot-device-sdk').device
 const cmdLineProcess = require('aws-iot-device-sdk/examples/lib/cmdline')
 
+const devices = [
+  'y4xzu',
+  '7fpfg',
+  'bwpz2',
+  'mngnd',
+  'akss7'
+]
 // begin module
 
 function processTest (args) {
