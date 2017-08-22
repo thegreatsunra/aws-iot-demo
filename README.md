@@ -48,16 +48,20 @@ yarn
 
 2) Open `package.json` and find the `start` script (should be around line 30)
 
-4) Update the value for `--host-name` to your "custom endpoint" on AWS IoT. You can find this value by clicking the "Settings" menu option on your AWS IoT home screen. It should look something like `xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com`
+3) Update the value for `--host-name` to your "custom endpoint" on AWS IoT. You can find this value by clicking the "Settings" menu option on your AWS IoT home screen. It should look something like `xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com`
 
 ### Run the demo
 
 1) Run `npm start`
 2) Go to your AWS IoT home screen and click the "Test" menu option
-3) Under "Subscribe to a topic" enter `awsIotDemo` as your "Subscription topic"
+3) Under "Subscribe to a topic" enter `deviceMessages_topic` as your "Subscription topic"
 4) Click "Subscribe to topic"
-5) Click the "awsIotDemo" menu item that appears beneath "Subscribe to a topic" in the left menu
+5) Click the "deviceMessages_topic" menu item that appears beneath "Subscribe to a topic" in the left menu
 6) You should see messages streaming in!
+
+### TODO: Add instructions for adding DynamoDB rule, and creating DynamoDB database and indexes
+
+### TODO: Add instructions for creating AWS API Gateway resources, methods, child resources, body mapping templates, deployments, stages, etc.
 
 ## License
 

@@ -1,0 +1,18 @@
+#set($inputRoot = $input.path('$'))
+{
+  "message": [
+    #foreach($elem in $inputRoot.Items) {
+      "id": "$elem.id.S",
+      "messageId" "$elem.payload.M.id.S",
+      "at": "$elem.payload.M.at.S",
+      "count": "$elem.payload.M.count.N",
+      "countIsPrime": "$elem.payload.M.countIsPrime.BOOL",
+      "lat": "$elem.payload.M.lat.N",
+      "lng": "$elem.payload.M.lng.N",
+      "topic": "$elem.payload.M.topic.S",
+      "deviceId": "$elem.payload.M.deviceId.S"
+    }
+#if($foreach.hasNext),#end
+#end
+  ]
+}

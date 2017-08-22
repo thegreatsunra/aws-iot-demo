@@ -21,6 +21,13 @@
 const deviceModule = require('aws-iot-device-sdk').device
 const cmdLineProcess = require('aws-iot-device-sdk/examples/lib/cmdline')
 
+const devices = [
+  'y4xzu',
+  '7fpfg',
+  'bwpz2',
+  'mngnd',
+  'akss7'
+]
 // begin module
 
 function processTest (args) {
@@ -44,57 +51,78 @@ function processTest (args) {
     debug: args.Debug
   })
 
+  const minimumDelay = 3000
+  const topic = 'deviceMessages_topic'
   let timeout // eslint-disable-line no-unused-vars
   let count = 0
-  const minimumDelay = 1000
 
   if ((Math.max(args.delay, minimumDelay)) !== args.delay) {
     console.log('substituting ' + minimumDelay + 'ms delay for ' + args.delay + 'ms...')
   }
+
   timeout = setInterval(() => {
     count++
+    let countIsPrime = isPrime(count)
     let now = new Date()
     let timestamp = now.toISOString()
     let message = {
-      timestampUTC: timestamp,
-      messageCount: count,
-      payload: {
-        keyOne: true,
-        keyTwo: 'value'
-      }
+      id: getRandomString(8),
+      deviceId: devices[getRandomNumber(0, 4)],
+      at: timestamp,
+      count: count,
+      topic: topic,
+      lat: 44.986656,
+      lng: -93.258133,
+      countIsPrime
     }
-    device.publish('awsIotDemo', JSON.stringify(message))
-    console.log('AWS IoT - device published: \n', JSON.stringify(message), '\n')
+    device.publish(topic, JSON.stringify(message))
+    console.log('AWS IoT - device.publish: \n', JSON.stringify(message), '\n')
   }, Math.max(args.delay, minimumDelay)) // clip to minimum
   device
     .on('connect', () => {
-      console.log('AWS IoT - device connected')
+      console.log('AWS IoT - device.connect')
     })
   device
     .on('close', () => {
-      console.log('AWS IoT - connection closed')
+      console.log('AWS IoT - device.close')
     })
   device
     .on('reconnect', () => {
-      console.log('AWS IoT - device reconnected')
+      console.log('AWS IoT - device.reconnect')
     })
   device
     .on('offline', () => {
-      console.log('AWS IoT - device offline')
+      console.log('AWS IoT - device.offline')
     })
   device
     .on('error', (error) => {
-      console.log('AWS IoT - error', error)
+      console.log('AWS IoT - device.error', error)
     })
   device
     .on('message', (topic, payload) => {
-      console.log('AWS IoT - device message', topic, payload.toString())
+      console.log('AWS IoT - device.message', topic, payload.toString())
     })
+}
+
+function isPrime (num) {
+  for (let i = 2; i < num; i++) if (num % i === 0) return false
+  return num !== 1
+}
+
+function getRandomNumber (min, max) {
+  return Math.floor(Math.random() * (max - min +1)) + min
+}
+
+function getRandomString (length) {
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let text = ''
+  for (let i = 0; i < length; i++) { text += possible.charAt(Math.floor(Math.random() * possible.length)) }
+  return text
 }
 
 module.exports = cmdLineProcess
 
 if (require.main === module) {
-  cmdLineProcess('connect to the AWS IoT service and publish/subscribe to topics using MQTT, test modes 1-2',
-  process.argv.slice(2), processTest)
+  cmdLineProcess('connect to the AWS IoT service and publish/subscribe to topics using MQTT',
+    process.argv.slice(2), processTest)
 }

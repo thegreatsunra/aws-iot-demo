@@ -1,7 +1,7 @@
 {
   "name": "aws-iot-demo",
   "description": "Lightweight demo of AWS IoT messaging",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "homepage": "https://github.com/thegreatsunra/aws-iot-demo",
   "repository": {
     "type": "git",
@@ -11,23 +11,24 @@
   "license": "MIT",
   "engines": {
     "node": "^7.10.0",
-    "npm": "^4.2.0"
+    "npm": "^5.1.0"
   },
   "dependencies": {
-    "aws-iot-device-sdk": "^1.0.14"
+    "aws-iot-device-sdk": "^2.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
+    "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1"
   },
   "scripts": {
     "lint": "eslint --ext .js ./",
-    "start": "node ./index.js -d --host-name=xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.crt"
+    "lint:fix": "eslint --ext .js ./ --fix",    
+    "start": "node ./index.js -d --host-name=xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.pem"
   },
   "main": "index.js"
 }
