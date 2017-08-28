@@ -27,8 +27,8 @@
   },
   "scripts": {
     "lint": "eslint --ext .js ./",
-    "lint:fix": "eslint --ext .js ./ --fix",    
-    "start": "node ./index.js -d --host-name=xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com --certificate-dir=./cert --private-key=private.pem.key --client-certificate=certificate.pem.crt --ca-certificate=root-CA.pem"
+    "lint:fix": "eslint --ext .js ./ --fix",
+    "start": "node ./index.js",
   },
   "main": "index.js"
 }

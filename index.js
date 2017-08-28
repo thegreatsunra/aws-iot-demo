@@ -16,68 +16,48 @@
 // node.js deps
 
 // npm deps
+const path = require('path')
 
 // app deps
-const deviceModule = require('aws-iot-device-sdk').device
-const cmdLineProcess = require('aws-iot-device-sdk/examples/lib/cmdline')
+const config = require('./config')
+const iotDevice = require('aws-iot-device-sdk').device
 
-const devices = [
-  'y4xzu',
-  '7fpfg',
-  'bwpz2',
-  'mngnd',
-  'akss7'
-]
 // begin module
+function process () {
 
-function processTest (args) {
-  //
-  // The device module exports an MQTT instance, which will attempt
-  // to connect to the AWS IoT endpoint configured in the arguments.
-  // Once connected, it will emit events which our application can
-  // handle.
-  //
-  const device = deviceModule({
-    keyPath: args.privateKey,
-    certPath: args.clientCert,
-    caPath: args.caCert,
-    clientId: args.clientId,
-    region: args.region,
-    baseReconnectTimeMs: args.baseReconnectTimeMs,
-    keepalive: args.keepAlive,
-    protocol: args.Protocol,
-    port: args.Port,
-    host: args.Host,
-    debug: args.Debug
-  })
+const device = iotDevice({
+  keyPath: config.keyPath,
+  certPath: config.certPath,
+  caPath: config.caPath,
+  clientId: config.clientId,
+  host: config.host
+ })
 
-  const minimumDelay = 3000
-  const topic = 'deviceMessages_topic'
   let timeout // eslint-disable-line no-unused-vars
-  let count = 0
-
-  if ((Math.max(args.delay, minimumDelay)) !== args.delay) {
-    console.log('substituting ' + minimumDelay + 'ms delay for ' + args.delay + 'ms...')
-  }
-
+  let count = config.count
+  let topic = config.topic
+  let lat = config.lat
+  let lng = config.lng
+  let minimumDelay = config.minimumDelay
+  let devices = config.devices
   timeout = setInterval(() => {
     count++
     let countIsPrime = isPrime(count)
     let now = new Date()
-    let timestamp = now.toISOString()
+    let at = now.toISOString()
     let message = {
       id: getRandomString(8),
       deviceId: devices[getRandomNumber(0, 4)],
-      at: timestamp,
-      count: count,
-      topic: topic,
-      lat: 44.986656,
-      lng: -93.258133,
+      at,
+      count,
+      topic,
+      lat,
+      lng,
       countIsPrime
     }
     device.publish(topic, JSON.stringify(message))
     console.log('AWS IoT - device.publish: \n', JSON.stringify(message), '\n')
-  }, Math.max(args.delay, minimumDelay)) // clip to minimum
+  }, minimumDelay)
   device
     .on('connect', () => {
       console.log('AWS IoT - device.connect')
@@ -120,9 +100,4 @@ function getRandomString (length) {
   return text
 }
 
-module.exports = cmdLineProcess
-
-if (require.main === module) {
-  cmdLineProcess('connect to the AWS IoT service and publish/subscribe to topics using MQTT',
-    process.argv.slice(2), processTest)
-}
+process()
