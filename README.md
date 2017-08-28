@@ -44,11 +44,13 @@ yarn
 
 ### Associate certificates with your project
 
-1) Move all the files you downloaded (the certificate, public key, private key, and root CA) from AWS IoT into the `certs/` folder of this project, and rename the files to `certificate.pem.crt`, `public.pem.key`, `private.pem.key`, and `root-CA.crt`
+1) Move all the files you downloaded (the certificate, public key, private key, and root CA) from AWS IoT into the `cert/` folder of this project, and rename the files to `certificate.pem.crt`, `public.pem.key`, `private.pem.key`, and `root-CA.pem`
 
-2) Open `package.json` and find the `start` script (should be around line 30)
+2) Open `config.original.js` and find the `host` value in the config object
 
-3) Update the value for `--host-name` to your "custom endpoint" on AWS IoT. You can find this value by clicking the "Settings" menu option on your AWS IoT home screen. It should look something like `xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com`
+3) Update the value for `host` to your "custom endpoint" on AWS IoT. You can find this value by clicking the "Settings" menu option on your AWS IoT home screen. It should look something like `xxxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com`
+
+4) Save `config.original.js` as a new file named `config.js`
 
 ### Run the demo
 
