@@ -29,6 +29,11 @@
     "lint": "eslint --ext .js ./",
     "lint:fix": "eslint --ext .js ./ --fix",
     "start": "node ./index.js",
+    "pkg": "pkg . --targets node8-macos-x64"
   },
-  "main": "index.js"
+  "main": "index.js",
+  "pkg": {
+    "scripts": "index.js"
+  },
+  "bin": "index.js"
 }
