@@ -61,6 +61,14 @@ yarn
 5) Click the "deviceMessages_topic" menu item that appears beneath "Subscribe to a topic" in the left menu
 6) You should see messages streaming in!
 
+### Package the demo
+
+You can package the demo into a single executable file using Zeit's [pkg](https://github.com/zeit/pkg) utility.
+
+1) Install pkg globally by running `npm install -g pkg`
+2) In your `aws-iot-demo` folder, run `npm run pkg` to generate executables for macOS, Windows, and Linux
+3) Double-click on the appropriate executable to run it in a command prompt
+
 ### TODO: Add instructions for adding DynamoDB rule, and creating DynamoDB database and indexes
 
 ### TODO: Add instructions for creating AWS API Gateway resources, methods, child resources, body mapping templates, enabling CORS, deployments, stages, etc.
