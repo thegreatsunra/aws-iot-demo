@@ -1,7 +1,7 @@
 {
   "name": "aws-iot-demo",
   "description": "Lightweight demo of AWS IoT messaging",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/thegreatsunra/aws-iot-demo",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "lint": "eslint --ext .js ./",
     "lint:fix": "eslint --ext .js ./ --fix",
     "start": "node ./index.js",
-    "pkg": "pkg . --targets node8-macos-x64"
+    "pkg": "pkg ."
   },
   "main": "index.js",
   "pkg": {
