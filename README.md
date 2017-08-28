@@ -61,7 +61,7 @@ yarn
 
 ### TODO: Add instructions for adding DynamoDB rule, and creating DynamoDB database and indexes
 
-### TODO: Add instructions for creating AWS API Gateway resources, methods, child resources, body mapping templates, deployments, stages, etc.
+### TODO: Add instructions for creating AWS API Gateway resources, methods, child resources, body mapping templates, enabling CORS, deployments, stages, etc.
 
 ## License
 
